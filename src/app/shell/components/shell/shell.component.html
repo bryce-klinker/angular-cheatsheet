@@ -1,0 +1,13 @@
+<mat-sidenav-container>
+  <mat-sidenav data-testid="sidenav-content">
+    <mat-nav-list>
+      <a routerLink="/routing" data-testid="routing-link">Routing</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div data-testid="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
