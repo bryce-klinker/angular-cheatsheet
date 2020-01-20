@@ -1,6 +1,14 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="toggleSidenav()" data-testid="sidenav-toggle">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
 <mat-sidenav-container>
-  <mat-sidenav data-testid="sidenav-content">
-    <mat-nav-list>
+  <mat-sidenav [opened]="isSidenavOpen$ | async" data-testid="sidenav-content">
+    <mat-nav-list data-testid="nav-list">
       <a routerLink="/routing" data-testid="routing-link">Routing</a>
     </mat-nav-list>
   </mat-sidenav>

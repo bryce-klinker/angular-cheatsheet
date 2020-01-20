@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import {AppState} from '../../../app.state';
+import {Store} from '@ngrx/store';
+import {toggleSidenav} from '../../../actions';
+import {Observable} from 'rxjs';
+import {selectIsSidenavOpen} from '../../../reducers';
 
 @Component({
   selector: 'app-shell',
@@ -6,4 +11,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent {
+  isSidenavOpen$: Observable<boolean>;
+
+  constructor(private store: Store<AppState>) {
+    this.isSidenavOpen$ = store.select(selectIsSidenavOpen);
+  }
+
+  toggleSidenav() {
+    this.store.dispatch(toggleSidenav());
+  }
 }
