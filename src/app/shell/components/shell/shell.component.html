@@ -8,13 +8,14 @@
 
 <mat-sidenav-container>
   <mat-sidenav (closed)="closeSidenav()" [opened]="isSidenavOpen$ | async" data-testid="sidenav-content">
-    <mat-nav-list data-testid="nav-list">
-      <a routerLink="/routing" data-testid="routing-link">Routing</a>
+    <mat-nav-list>
+      <a class="nav-link" routerLink="/welcome" data-testid="welcome-link">Welcome</a>
+      <a class="nav-link" routerLink="/routing" data-testid="routing-link">Routing</a>
     </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <div data-testid="main-content">
+    <div class="main-content" data-testid="main-content">
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

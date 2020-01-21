@@ -1,0 +1,10 @@
+@import '~@angular/material/theming';
+
+$primary-palette: mat-palette($mat-blue);
+$accent-palette: mat-palette($mat-yellow, A200, A100, A400);
+$warn-palette: mat-palette($mat-red);
+$theme: mat-dark-theme($primary-palette, $accent-palette, $warn-palette);
+
+$background: map-get($theme, background);
+$background-color: mat-color($background, background);
+$hover-color: mat-color($background, hover);

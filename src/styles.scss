@@ -1,15 +1,4 @@
-@import '~@angular/material/theming';
-
-@include mat-core();
-
-$angular-cheatsheet-primary: mat-palette($mat-indigo);
-$angular-cheatsheet-accent: mat-palette($mat-pink, A200, A100, A400);
-
-$angular-cheatsheet-warn: mat-palette($mat-red);
-
-$angular-cheatsheet-theme: mat-light-theme($angular-cheatsheet-primary, $angular-cheatsheet-accent, $angular-cheatsheet-warn);
-
-@include angular-material-theme($angular-cheatsheet-theme);
+@import 'app/shared/theming/main.scss';
 
 html, body {
   height: 100%;

@@ -1,3 +1,5 @@
+@import '../../../shared/theming/variables.scss';
+
 :host {
   display: flex;
   flex-direction: column;
@@ -7,4 +9,40 @@
 mat-sidenav-container {
   display: flex;
   flex: 1;
+
+  mat-sidenav {
+    min-width: 10em;
+
+
+    mat-nav-list {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding-left: 0.75em;
+
+      .nav-link {
+        padding-top: .5em;
+        padding-bottom: .5em;
+        flex: 1;
+      }
+    }
+  }
+
+  mat-sidenav-content {
+    display: flex;
+    flex: 1;
+    background-color: $background-color;
+
+    .main-content {
+      display: flex;
+      flex: 1;
+      margin: 1em;
+      padding: 1em;
+      background-color: $hover-color;
+    }
+  }
 }
+
+
+
+
