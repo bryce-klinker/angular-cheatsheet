@@ -11,8 +11,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
-import { AppEffects } from './app.effects';
-import {APP_EFFECTS} from './effects';
 
 @NgModule({
   declarations: [
@@ -32,7 +30,7 @@ import {APP_EFFECTS} from './effects';
     }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreRouterConnectingModule.forRoot(),
-    EffectsModule.forRoot([...APP_EFFECTS])
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [...SHELL_BOOTSTRAP_COMPONENTS]
