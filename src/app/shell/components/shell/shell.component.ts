@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {AppState} from '../../../app.state';
 import {Store} from '@ngrx/store';
-import {toggleSidenav} from '../../../actions';
+import {closeSidenav, toggleSidenav} from '../../../actions';
 import {Observable} from 'rxjs';
 import {selectIsSidenavOpen} from '../../../reducers';
 
@@ -19,5 +19,9 @@ export class ShellComponent {
 
   toggleSidenav() {
     this.store.dispatch(toggleSidenav());
+  }
+
+  closeSidenav() {
+    this.store.dispatch(closeSidenav());
   }
 }

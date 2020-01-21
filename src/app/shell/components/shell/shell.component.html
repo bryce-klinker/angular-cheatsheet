@@ -7,7 +7,7 @@
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav [opened]="isSidenavOpen$ | async" data-testid="sidenav-content">
+  <mat-sidenav (closed)="closeSidenav()" [opened]="isSidenavOpen$ | async" data-testid="sidenav-content">
     <mat-nav-list data-testid="nav-list">
       <a routerLink="/routing" data-testid="routing-link">Routing</a>
     </mat-nav-list>

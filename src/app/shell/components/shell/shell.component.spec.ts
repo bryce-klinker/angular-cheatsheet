@@ -1,20 +1,11 @@
 import {ShellComponent} from './shell.component';
-import {renderComponent, FakeStore} from '../../../../testing';
-import {TestBed} from '@angular/core/testing';
-import {Store} from '@ngrx/store';
-import {AppState} from '../../../app.state';
-import {toggleSidenav} from '../../../actions';
+import {renderComponent} from '../../../../testing';
+import {closeSidenav, toggleSidenav} from '../../../actions';
+import {By} from '@angular/platform-browser';
 
 describe('ShellComponent', () => {
-  it('should show side navigation', async () => {
-    const {queryAllByTestId} = await renderComponent(ShellComponent);
-
-    expect(queryAllByTestId('sidenav-content').length).toEqual(1);
-  });
-
   it('should trigger sidenav open', async () => {
-    const { getByTestId } = await renderComponent(ShellComponent);
-    const store: FakeStore<AppState> = TestBed.get(Store);
+    const { getByTestId, store } = await renderComponent(ShellComponent);
 
     getByTestId('sidenav-toggle').click();
 
@@ -31,5 +22,13 @@ describe('ShellComponent', () => {
     const {getByTestId} = await renderComponent(ShellComponent, { actions: [toggleSidenav()] });
 
     expect(getByTestId('sidenav-content').style.visibility).toEqual('visible');
+  });
+
+  it('should trigger close sidenav when sidenav closes', async () => {
+    const {store, fixture} = await renderComponent(ShellComponent, { actions: [toggleSidenav()] });
+
+    fixture.debugElement.query(By.css('[data-testid="sidenav-content"]')).triggerEventHandler('closed', {});
+
+    expect(store.getActions()).toContain(closeSidenav());
   });
 });

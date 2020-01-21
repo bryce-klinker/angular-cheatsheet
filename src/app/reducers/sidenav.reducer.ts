@@ -14,6 +14,8 @@ export function sidenavReducer(state: SidenavState = initialState, action: Actio
   switch (action.type) {
     case SIDENAV_ACTION_TYPES.TOGGLE:
       return {...state, isOpen: !state.isOpen};
+    case SIDENAV_ACTION_TYPES.CLOSE:
+      return {...state, isOpen: false};
     default:
       return state;
   }
