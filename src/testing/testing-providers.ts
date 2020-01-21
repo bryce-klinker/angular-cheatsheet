@@ -4,12 +4,17 @@ import {createState} from './create-state';
 import {ActivatedRoute} from '@angular/router';
 import {FakeActivatedRoute} from './fake-activated-route';
 import {FakeStore} from './fake-store';
+import {provideMockActions} from '@ngrx/effects/testing';
+import {Subject} from 'rxjs';
 
 export function getTestingProviders(...actions: Action[]) {
   const state = createState(...actions);
-  return [
-    provideMockStore({ initialState: state }),
-    { provide: Store, useClass: FakeStore },
-    { provide: ActivatedRoute, useClass: FakeActivatedRoute }
+  const actions$ = new Subject<Action>();
+  const providers = [
+    provideMockStore({initialState: state}),
+    provideMockActions(() => actions$.asObservable()),
+    {provide: Store, useClass: FakeStore},
+    {provide: ActivatedRoute, useClass: FakeActivatedRoute}
   ];
+  return { actions$, providers };
 }

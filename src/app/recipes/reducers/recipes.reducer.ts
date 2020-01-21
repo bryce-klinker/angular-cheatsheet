@@ -3,6 +3,8 @@ import {createEntityAdapter, EntityState} from '@ngrx/entity';
 import {RecipeModel} from '../models';
 import {loadAllRecipesSuccess} from '../actions';
 
+export const RECIPES_FEATURE_KEY = 'recipes';
+
 export interface RecipesState extends EntityState<RecipeModel> {
 }
 
@@ -17,7 +19,7 @@ export const recipesReducer = createReducer(
 
 const { selectAll } = adapter.getSelectors();
 
-const selectRecipesState = createFeatureSelector<RecipesState>('recipes');
+const selectRecipesState = createFeatureSelector<RecipesState>(RECIPES_FEATURE_KEY);
 export const selectAllRecipes = createSelector(
   selectRecipesState,
   selectAll
