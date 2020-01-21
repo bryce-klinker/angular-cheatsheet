@@ -1,1 +1,4 @@
-<mat-progress-bar data-testid="loading-indicator" [ngClass]="indicatorClass$ | async" ></mat-progress-bar>
+<mat-progress-bar data-testid="loading-indicator"
+                  mode="indeterminate"
+                  [ngClass]="indicatorClass$ | async">
+</mat-progress-bar>
