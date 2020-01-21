@@ -8,6 +8,7 @@ import {FakeStore} from './fake-store';
 import {AppState} from '../app/app.state';
 import {TestBed} from '@angular/core/testing';
 import {AppModule} from '../app/app.module';
+import {SHELL_COMPONENTS} from '../app/shell/components';
 
 interface RenderOptions {
   actions?: Action[];
@@ -26,10 +27,14 @@ export async function renderRootComponent<T>(
 ): Promise<RenderResultWithStore<T>> {
   const {providers: testingProviders} = getTestingProviders(...actions);
   const result = await testingRender(component, {
+    excludeComponentDeclaration: true,
     imports: getRootTestingImports(),
     providers: [
       ...testingProviders,
       ...providers
+    ],
+    declarations: [
+      ...SHELL_COMPONENTS
     ]
   });
 

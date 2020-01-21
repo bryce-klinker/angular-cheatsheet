@@ -1,5 +1,6 @@
-import {SidenavState} from './reducers/sidenav.reducer';
+import {SidenavState, LoadingState} from './reducers';
 
 export interface AppState {
   sidenav: SidenavState;
+  loading: LoadingState;
 }
