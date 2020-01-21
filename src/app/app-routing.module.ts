@@ -13,6 +13,10 @@ const routes: Routes = [
     loadChildren: () => import('./routing/routing.module').then(mod => mod.RoutingModule)
   },
   {
+    path: 'recipes',
+    loadChildren: () => import('./recipes/recipes.module').then(mod => mod.RecipesModule)
+  },
+  {
     path: '**',
     redirectTo: '/welcome',
   }
