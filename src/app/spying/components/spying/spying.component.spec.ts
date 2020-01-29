@@ -29,7 +29,3 @@ describe('SpyingComponent', () =>  {
     expect(matDialog.open).toHaveBeenCalled();
   });
 });
-
-class FakeMatDialogRef {
-
-}
