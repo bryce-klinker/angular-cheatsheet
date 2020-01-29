@@ -2,9 +2,9 @@ import {renderFeatureComponent, renderRootComponent} from '../../../../testing';
 import {RecipesLayoutContainerComponent} from './recipes-layout-container.component';
 import {RecipesModule} from '../../recipes.module';
 import {Action} from '@ngrx/store';
-import {loadAllRecipesSuccess, recipeSelected} from '../../actions';
+import {loadAllRecipesRequest, loadAllRecipesSuccess, recipeSelected} from '../../actions';
 
-describe('RecipesLayoutComponent', () => {
+describe('RecipesLayoutContainerComponent', () => {
   it('should have router outlet', async () => {
     const {queryAllByTestId} = await setup();
 
@@ -31,6 +31,12 @@ describe('RecipesLayoutComponent', () => {
     const {container} = await setup(loadAllRecipesSuccess({recipes}), recipeSelected({id: 3}));
 
     expect(container.querySelectorAll('.selected').length).toEqual(1);
+  });
+
+  it('should dispatch load recipes action', async () => {
+    const {store} = await setup();
+
+    expect(store.getActions()).toContain(loadAllRecipesRequest());
   });
 
   function setup(...actions: Action[]) {
