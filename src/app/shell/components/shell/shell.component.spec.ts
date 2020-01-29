@@ -18,6 +18,12 @@ describe('ShellComponent', () => {
     expect(getByTestId('routing-link').textContent).toContain('Routing');
   });
 
+  it('should have link to recipes', async () => {
+    const {getByTestId} = await renderRootComponent(ShellComponent);
+
+    expect(getByTestId('recipes-link').textContent).toContain('Recipes');
+  });
+
   it('should have an open sidenav', async () => {
     const {getByTestId} = await renderRootComponent(ShellComponent, {actions: [toggleSidenav()]});
 

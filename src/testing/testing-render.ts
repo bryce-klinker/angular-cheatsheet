@@ -14,6 +14,7 @@ interface RenderOptions {
   actions?: Action[];
   providers?: [];
   module?: any;
+  properties?: any;
 }
 
 interface RenderResultWithStore<ComponentType> extends RenderResult<ComponentType, ComponentType> {
@@ -23,7 +24,7 @@ interface RenderResultWithStore<ComponentType> extends RenderResult<ComponentTyp
 
 export async function renderRootComponent<T>(
   component: Type<T>,
-  {actions = [], providers = []}: RenderOptions = {}
+  {actions = [], providers = [], properties = {}}: RenderOptions = {}
 ): Promise<RenderResultWithStore<T>> {
   const {providers: testingProviders} = getTestingProviders(...actions);
   const result = await testingRender(component, {
@@ -35,7 +36,10 @@ export async function renderRootComponent<T>(
     ],
     declarations: [
       ...SHELL_COMPONENTS
-    ]
+    ],
+    componentProperties: {
+      ...properties
+    }
   });
 
   const store = TestBed.get(Store);
@@ -45,7 +49,7 @@ export async function renderRootComponent<T>(
 export async function renderFeatureComponent<T>(
   component: Type<T>,
   module: any,
-  {actions = [], providers = []}: RenderOptions = {},
+  {actions = [], providers = [], properties = {}}: RenderOptions = {},
 ): Promise<RenderResultWithStore<T>> {
   const {providers: testingProviders} = getTestingProviders(...actions);
   const result = await testingRender(component, {
@@ -54,7 +58,10 @@ export async function renderFeatureComponent<T>(
     providers: [
       ...testingProviders,
       ...providers
-    ]
+    ],
+    componentProperties: {
+      ...properties
+    }
   });
 
   const store = TestBed.get(Store);

@@ -1,0 +1,8 @@
+<div>
+  <app-recipes-list data-testid="recipes-list"
+                    [recipes]="recipes$ | async"
+                    [selectedRecipeId]="selectedRecipeId$ | async">
+  </app-recipes-list>
+  <router-outlet data-testid="recipes-router-outlet"></router-outlet>
+</div>
+

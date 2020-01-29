@@ -1,7 +1,7 @@
-import {RecipesLayoutComponent} from './recipes-layout';
+import {RecipesLayoutContainerComponent} from './recipes-layout-container';
 import {RecipesListComponent} from './recipes-list';
 
 export const RECIPES_COMPONENTS = [
-  RecipesLayoutComponent,
+  RecipesLayoutContainerComponent,
   RecipesListComponent
 ];
