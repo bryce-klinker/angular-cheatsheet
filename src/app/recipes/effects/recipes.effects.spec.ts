@@ -28,7 +28,7 @@ describe('RecipesEffects', () => {
     });
     actions$.next(loadAllRecipesRequest());
 
-    httpTestingController.expectOne('https://somewhere.com/recipes')
+    httpTestingController.expectOne('/recipes')
       .flush(expected);
   });
 
@@ -39,7 +39,7 @@ describe('RecipesEffects', () => {
     });
     actions$.next(loadAllRecipesRequest());
 
-    httpTestingController.expectOne('https://somewhere.com/recipes')
+    httpTestingController.expectOne('/recipes')
       .error(new ErrorEvent(''), { statusText: 'This is bad' });
   });
 });

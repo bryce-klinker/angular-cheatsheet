@@ -10,7 +10,7 @@ import {of} from 'rxjs';
 export class RecipesEffects {
   loadRecipes$ = createEffect(() => this.actions$.pipe(
     ofType(loadAllRecipesRequest),
-    mergeMap(() => this.httpClient.get<RecipeModel[]>('https://somewhere.com/recipes').pipe(
+    mergeMap(() => this.httpClient.get<RecipeModel[]>('/recipes').pipe(
       map(recipes => loadAllRecipesSuccess({recipes})),
       catchError((err: HttpErrorResponse) => of(loadAllRecipesFailed({error: err.statusText})))
     ))

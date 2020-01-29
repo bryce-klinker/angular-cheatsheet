@@ -7,7 +7,6 @@ import {RenderResult} from '@testing-library/angular/lib/models';
 import {FakeStore} from './fake-store';
 import {AppState} from '../app/app.state';
 import {TestBed} from '@angular/core/testing';
-import {AppModule} from '../app/app.module';
 import {SHELL_COMPONENTS} from '../app/shell/components';
 
 interface RenderOptions {

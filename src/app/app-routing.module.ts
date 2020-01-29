@@ -17,6 +17,10 @@ const routes: Routes = [
     loadChildren: () => import('./recipes/recipes.module').then(mod => mod.RecipesModule)
   },
   {
+    path: 'spying',
+    loadChildren: () => import('./spying/spying.module').then(mod => mod.SpyingModule)
+  },
+  {
     path: '**',
     redirectTo: '/welcome',
   }

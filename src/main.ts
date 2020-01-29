@@ -2,13 +2,22 @@ import 'hammerjs';
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { AppModule } from './app/app.module';
+import { createAppModuleClass } from './app/app.module';
 import { environment } from './environments/environment';
 
-if (environment.production) {
-  enableProdMode();
+import defaultSettings from './settings.json';
+
+async function bootstrap() {
+  let settings = defaultSettings;
+  if (environment.production) {
+    enableProdMode();
+    const response = await fetch('settings.json');
+    settings = await response.json();
+  }
+
+  platformBrowserDynamic()
+    .bootstrapModule(createAppModuleClass(settings))
+    .catch(err => console.error(err));
 }
 
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+bootstrap();
