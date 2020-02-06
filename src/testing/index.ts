@@ -5,3 +5,4 @@ export * from './testing-providers';
 export * from './fake-activated-route';
 export * from './fake-store';
 export * from './init.action';
+export * from './fake-dialog-ref';

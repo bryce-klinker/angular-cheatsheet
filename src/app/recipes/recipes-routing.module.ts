@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {RecipesLayoutContainerComponent} from './components/recipes-layout-container';
+import {RecipesLayoutComponent} from './containers/recipes-layout';
 
 const routes: Routes = [
   {
-    path: '', component: RecipesLayoutContainerComponent
+    path: '', component: RecipesLayoutComponent
   }
 ];
 

@@ -1,8 +1,6 @@
-import {renderFeatureComponent, renderRootComponent} from '../../../../testing';
+import {renderFeatureComponent} from '../../../../testing';
 import {RecipesListComponent} from './recipes-list.component';
-import {loadAllRecipesSuccess, recipeSelected} from '../../actions';
 import {RecipesModule} from '../../recipes.module';
-import {Action} from '@ngrx/store';
 
 describe('RecipesListComponent', () => {
   it('should show all recipes', async () => {

@@ -1,5 +1,5 @@
 import {renderFeatureComponent, renderRootComponent} from '../../../../testing';
-import {RecipesLayoutContainerComponent} from './recipes-layout-container.component';
+import {RecipesLayoutComponent} from './recipes-layout.component';
 import {RecipesModule} from '../../recipes.module';
 import {Action} from '@ngrx/store';
 import {loadAllRecipesRequest, loadAllRecipesSuccess, recipeSelected} from '../../actions';
@@ -40,6 +40,6 @@ describe('RecipesLayoutContainerComponent', () => {
   });
 
   function setup(...actions: Action[]) {
-    return renderFeatureComponent(RecipesLayoutContainerComponent, RecipesModule, {actions});
+    return renderFeatureComponent(RecipesLayoutComponent, RecipesModule, {actions});
   }
 });

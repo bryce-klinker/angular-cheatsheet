@@ -1,0 +1,12 @@
+<form [formGroup]="form">
+  <h1 mat-dialog-title>Add Recipe</h1>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <input data-testid="recipe-name" formControlName="name" matInput placeholder="Name" />
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button data-testid="submit-recipe" mat-button (click)="submit()">Save Recipe</button>
+  </div>
+</form>
+

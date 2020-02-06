@@ -8,10 +8,10 @@ import {loadAllRecipesRequest} from '../../actions';
 
 @Component({
   selector: 'app-recipes-layout-container',
-  templateUrl: './recipes-layout-container.component.html',
-  styleUrls: ['./recipes-layout-container.component.scss']
+  templateUrl: './recipes-layout.component.html',
+  styleUrls: ['./recipes-layout.component.scss']
 })
-export class RecipesLayoutContainerComponent implements OnInit {
+export class RecipesLayoutComponent implements OnInit {
   recipes$: Observable<RecipeModel[]>;
   selectedRecipeId$: Observable<number>;
 
